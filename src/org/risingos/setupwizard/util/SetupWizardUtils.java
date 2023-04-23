@@ -245,7 +245,7 @@ public class SetupWizardUtils {
     }
 
     public static boolean hasBiometric(Context context) {
-        return hasFingerprint(context) || hasFace(context);
+        return hasFingerprint(context) || hasFace();
     }
 
     public static boolean hasFingerprint(Context context) {
@@ -259,15 +259,8 @@ public class SetupWizardUtils {
         }
     }
 
-    public static boolean hasFace(Context context) {
-        PackageManager packageManager = context.getPackageManager();
-        if (packageManager.hasSystemFeature(PackageManager.FEATURE_FACE)) {
-            FaceManager faceManager = (FaceManager)
-                    context.getSystemService(Context.FACE_SERVICE);
-            return faceManager.isHardwareDetected();
-        } else {
-            return false;
-        }
+    public static boolean hasFace() {
+        return false;
     }
 
     public static boolean simMissing() {

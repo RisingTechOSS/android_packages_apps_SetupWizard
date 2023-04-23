@@ -41,7 +41,7 @@ public class BiometricActivity extends SubBaseActivity {
         final TextView setupBiometricSummary = (TextView) findViewById(
                 R.id.setup_biometric_summary);
         final TextView setupAddBiometric = (TextView) findViewById(R.id.setup_add_biometric);
-        if (SetupWizardUtils.hasFace(this)) {
+        if (SetupWizardUtils.hasFace()) {
             setupBiometricSummary.setText(getString(R.string.face_setup_summary));
             setupAddBiometric.setText(R.string.face_setup_add_face);
         } else {
@@ -67,7 +67,7 @@ public class BiometricActivity extends SubBaseActivity {
 
     @Override
     protected int getTitleResId() {
-        if (SetupWizardUtils.hasFace(this)) {
+        if (SetupWizardUtils.hasFace()) {
             return R.string.face_setup_title;
         }
         return R.string.fingerprint_setup_title;
@@ -75,7 +75,7 @@ public class BiometricActivity extends SubBaseActivity {
 
     @Override
     protected int getIconResId() {
-        if (SetupWizardUtils.hasFace(this)) {
+        if (SetupWizardUtils.hasFace()) {
             return R.drawable.ic_face;
         }
         return R.drawable.ic_fingerprint;
